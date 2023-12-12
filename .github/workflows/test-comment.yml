@@ -1,0 +1,20 @@
+name: comment preview
+run-name: ${{ github.actor }} is building Wealth Webapp beta preview
+
+on:
+  push:
+  
+jobs:
+  comment:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Just comment'
+            });
