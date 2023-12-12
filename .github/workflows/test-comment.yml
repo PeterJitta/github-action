@@ -1,5 +1,5 @@
 name: comment preview
-run-name: ${{ github.actor }} is comment preivew
+run-name: ${{ github.actor }} is comment preview
 
 on:
   push:
@@ -9,10 +9,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: 'npm'
       - uses: actions/github-script@v7
         with:
           script: |
